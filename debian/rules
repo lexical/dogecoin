@@ -1,0 +1,25 @@
+#!/usr/bin/make -f
+#DH_VERBOSE = 1
+
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/default.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+%:
+	dh $@ --with autoreconf
+
+override_dh_auto_configure:
+	./autogen.sh
+	dh_auto_configure -- --with-incompatible-bdb --with-gui=qt5 --enable-upnp-default
+
+override_dh_auto_install:
+	dh_auto_install
+	rm -f $(CURDIR)/debian/dogecoin/usr/bin/test_dogecoin
+	rm -f $(CURDIR)/debian/dogecoin/usr/bin/test_dogecoin-qt
+
+override_dh_install:
+	dh_install
+	mv $(CURDIR)/debian/dogecoin/usr/share/pixmaps/bitcoin128.png $(CURDIR)/debian/dogecoin/usr/share/pixmaps/dogecoin128.png

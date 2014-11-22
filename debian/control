@@ -1,0 +1,20 @@
+Source: dogecoin
+Section: utils
+Priority: optional
+Maintainer: Keng-Yu Lin <kengyu@lexical.tw>
+Build-Depends: debhelper (>= 9), dh-autoreconf, automake, autoconf, pkg-config, libdb++-dev, libminiupnpc-dev, libboost-system-dev, libboost-filesystem-dev, libboost-program-options-dev, libboost-thread-dev, libboost-chrono-dev, libboost-test-dev, libssl-dev, libprotobuf-dev, protobuf-compiler, qtbase5-dev, qttools5-dev-tools, libqrencode-dev
+Standards-Version: 3.9.6
+Homepage: http://dogecoin.com/
+
+Package: dogecoin
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer network based digital currency
+ Dogecoin is a free open source peer-to-peer electronic cash system that
+ is completely decentralized, without the need for a central server or
+ trusted parties.  Users hold the crypto keys to their own money and
+ transact directly with each other, with the help of a P2P network to
+ check for double-spending.
+ .
+ Full transaction history is stored locally at each client.  This
+ requires 20+ GB of space, slowly growing.

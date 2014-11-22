@@ -1,0 +1,5 @@
+dogecoin (1.8.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #748799)
+
+ -- Keng-Yu Lin <kengyu@lexical.tw>  Thu, 20 Nov 2014 23:58:33 +0800

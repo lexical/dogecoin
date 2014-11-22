@@ -1,0 +1,4 @@
+version=3
+
+opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/dogecoin-$1\.tar\.gz/ \
+  https://github.com/dogecoin/dogecoin/tags .*/v?([\d\.]*)\.tar\.gz
