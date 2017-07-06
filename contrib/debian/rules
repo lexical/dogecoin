@@ -1,21 +1,26 @@
 #!/usr/bin/make -f
-# -*- mode: makefile; coding: utf-8 -*-
+#DH_VERBOSE = 1
 
-#DEB_MAKE_CHECK_TARGET = test_bitcoin
-#build/bitcoind::
-#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_bitcoin)
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/default.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
 %:
-	dh --with bash-completion $@
+	dh $@ --with autoreconf
 
-override_dh_auto_clean:
-	if [ -f Makefile ]; then $(MAKE) distclean; fi
-	rm -rf Makefile.in aclocal.m4 configure src/Makefile.in src/bitcoin-config.h.in src/build-aux src/qt/Makefile.in src/qt/test/Makefile.in src/test/Makefile.in
-
-# Yea, autogen should be run on the source archive, but I like doing git archive
 override_dh_auto_configure:
 	./autogen.sh
-	./configure
+	dh_auto_configure -- --with-incompatible-bdb --with-gui=qt5 --enable-upnp-default --disable-tests
 
-override_dh_auto_test:
-	make check
+override_dh_auto_install:
+	dh_auto_install
+	rm -f $(CURDIR)/debian/dogecoin/usr/bin/test_dogecoin
+	rm -f $(CURDIR)/debian/dogecoin/usr/bin/test_dogecoin-qt
+	find $(CURDIR)/debian/dogecoin/ -name libdogecoinconsensus.la -exec rm -f {} \;
+
+override_dh_install:
+	dh_install
+	mv $(CURDIR)/debian/dogecoin/usr/share/pixmaps/bitcoin128.png $(CURDIR)/debian/dogecoin/usr/share/pixmaps/dogecoin128.png

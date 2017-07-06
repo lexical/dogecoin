@@ -1,5 +1,4 @@
-# Run the "uscan" command to check for upstream updates and more.
 version=3
-# use qa.debian.org redirector; see man uscan
-opts=uversionmangle=s/(\d)(alpha|beta|rc)/$1~$2/,dversionmangle=s/~dfsg\d*// \
- http://githubredir.debian.net/github/bitcoin/bitcoin v(.*).tar.gz
+
+opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/dogecoin-$1\.tar\.gz/ \
+  https://github.com/dogecoin/dogecoin/tags .*/v?([\d\.]*)\.tar\.gz

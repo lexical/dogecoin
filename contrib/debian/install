@@ -1,0 +1,7 @@
+debian/dogecoin-qt.desktop usr/share/applications
+share/pixmaps/bitcoin128.png usr/share/pixmaps
+#debian/dogecoin/usr/lib/x86_64-linux-gnu/libbitcoinconsensus.a /usr/lib/x86_64-linux-gnu/dogecoin/
+#debian/dogecoin/usr/lib/x86_64-linux-gnu/libbitcoinconsensus.la /usr/lib/x86_64-linux-gnu/dogecoin/
+#debian/dogecoin/usr/lib/x86_64-linux-gnu/libbitcoinconsensus.so /usr/lib/x86_64-linux-gnu/dogecoin/
+#debian/dogecoin/usr/lib/x86_64-linux-gnu/libbitcoinconsensus.so.0 /usr/lib/x86_64-linux-gnu/dogecoin/
+#debian/dogecoin/usr/lib/x86_64-linux-gnu/libbitcoinconsensus.so.0.0.0 /use/lib/x86_64-linux-gnu/dogecoin/

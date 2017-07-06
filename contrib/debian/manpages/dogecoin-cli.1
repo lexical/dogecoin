@@ -1,0 +1,63 @@
+.TH DOGECOIN-CLI "1" "November 2014" "dogecoin-cli 1.8" "User Commands"
+.SH NAME
+dogecoin-cli \- Dogecoin Core RPC client
+.SH DESCRIPTION
+Dogecoin Core RPC client
+.SS "Usage:"
+.TP
+dogecoin\-cli [options] <command> [params]
+Send command to Dogecoin Core
+.TP
+dogecoin\-cli [options] help
+List commands
+.TP
+dogecoin\-cli [options] help <command>
+Get help for a command
+.SH OPTIONS
+.TP
+\-?
+This help message
+.TP
+\fB\-conf=\fR<file>
+Specify configuration file (default: dogecoin.conf)
+.TP
+\fB\-datadir=\fR<dir>
+Specify data directory
+.TP
+\fB\-testnet\fR
+Use the test network
+.TP
+\fB\-regtest\fR
+Enter regression test mode, which uses a special chain in which blocks can be solved instantly. This is intended for regression testing tools and app development.
+.TP
+\fB\-rpcconnect=\fR<ip>
+Send commands to node running on <ip> (default: 127.0.0.1)
+.TP
+\fB\-rpcport=\fR<port>
+Connect to JSON\-RPC on <port> (default: 22555 or testnet: 44555)
+.TP
+\fB\-rpcwait\fR
+Wait for RPC server to start
+.TP
+\fB\-rpcuser=\fR<user>
+Username for JSON\-RPC connections
+.TP
+\fB\-rpcpassword=\fR<pw>
+Password for JSON\-RPC connections
+.PP
+SSL options: (see the Bitcoin Wiki for SSL setup instructions)
+.TP
+\fB\-rpcssl\fR
+Use OpenSSL (https) for JSON\-RPC connections
+.SH "SEE ALSO"
+The full documentation for
+.B dogecoin-cli
+is maintained as a Texinfo manual.  If the
+.B info
+and
+.B dogecoin-cli
+programs are properly installed at your site, the command
+.IP
+.B info dogecoin-cli
+.PP
+should give you access to the complete manual.

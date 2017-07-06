@@ -1,1 +1,5 @@
-
+0001-configure.ac_use_PIC.patch
+0002-rename-libbitcoinconsensus-to-libdogecoinconsensus.patch
+0003-reproducible-build.patch
+0004-rename-RAND_egd.patch
+0005-openssl_1_1_fixes.patch
